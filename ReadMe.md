@@ -57,3 +57,5 @@ _This is just a example for [addXP](https://docs.tuncion.de/scripts/tuncion-xp/s
 
 # To Do
 - [ ] Add Events
+- [ ] Level Multiplier
+- [ ] Export: neededXP
