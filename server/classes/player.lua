@@ -11,6 +11,11 @@ function Player(source, identifier, xp, xpLog)
         return self.xp
     end
 
+    function self.getNeededXP()
+        local TotalXP = self.getTotalXP()
+        return CalculateNeededXPToUprank(TotalXP)
+    end
+
     function self.getTotalXP()
         return self.totalXP
     end
@@ -495,6 +500,19 @@ function CalculateXPToRank(rank)
     end
 
     return xp
+end
+
+function CalculateNeededXPToUprank(xp)
+    local rank = Config.DefaultLevel
+    local xpNeeded = Config.XPLevelThreshold
+
+    while xp >= xpNeeded do
+        rank = rank + 1
+        xp = xp - xpNeeded
+        xpNeeded = xpNeeded + Config.XPIncreasement
+    end
+
+    return math.floor(xpNeeded - xp)
 end
 
 function SendDiscordWebhook(source, WebhookData)

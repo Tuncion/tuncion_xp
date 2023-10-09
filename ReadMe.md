@@ -24,6 +24,7 @@ See the Documentation: https://docs.tuncion.de/scripts/tuncion-xp
 - getGlobalRank
 - getTotalXP
 - getXP
+- getNeededXP
 - getRank
 - getXPLog
  
@@ -58,4 +59,4 @@ _This is just a example for [addXP](https://docs.tuncion.de/scripts/tuncion-xp/s
 # To Do
 - [ ] Add Events
 - [ ] Level Multiplier
-- [ ] Export: neededXP
+- [x] Export: neededXP

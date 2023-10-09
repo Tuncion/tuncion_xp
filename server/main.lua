@@ -163,6 +163,16 @@ function getXP(PlayerID)
     end
 end
 
+function getNeededXP(PlayerID)
+    local PlayerData = Players[PlayerID]
+
+    if PlayerData then
+        return PlayerData.getNeededXP()
+    else
+        return nil
+    end
+end
+
 function getRank(PlayerID)
     local PlayerData = Players[PlayerID]
 

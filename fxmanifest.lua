@@ -36,6 +36,7 @@ server_exports {
 	'getGlobalRank',
 	'getTotalXP',
 	'getXP',
+	'getNeededXP',
 	'getRank',
 	'getXPLog',
 
