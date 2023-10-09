@@ -39,7 +39,25 @@ See the Documentation: https://docs.tuncion.de/scripts/tuncion-xp
 - resetPlayerXP
 
 # Events
-**Planed in near future**
+
+| Event                          | Type           | Description                                  | Parameter                                       |
+|--------------------------------|----------------|----------------------------------------------|-------------------------------------------------|
+| `tuncion_xp:log:addXP`         | **Serverside** | Event occurs when a player gains XP          | `source`, `{ newRank: Bool, change: Integer }`  |
+| `tuncion_xp:log:removeXP`      | **Serverside** | Event occurs when a player loses XP          | `source`, `{ newRank: Bool, change: Integer }`  |
+| `tuncion_xp:log:setXP`         | **Serverside** | Event occurs when a player's XP is set       | `source`, `{ newRank: Bool, totalXP: Integer }` |
+| `tuncion_xp:log:addRank`       | **Serverside** | Event occurs when a player's rank is added   | `source`, `{ rank: Integer, totalXP: Integer }` |
+| `tuncion_xp:log:removeRank`    | **Serverside** | Event occurs when a player's rank is removed | `source`, `{ rank: Integer, totalXP: Integer }` |
+| `tuncion_xp:log:setRank`       | **Serverside** | Event occurs when a player's rank is set     | `source`, `{ rank: Integer, totalXP: Integer }` |
+| `tuncion_xp:log:resetPlayer`   | **Serverside** | Event occurs when a player is reset          | `source`                                        |
+| `tuncion_xp:log:resetPlayerXP` | **Serverside** | Event occurs when a player's XP is reset     | `source`, `{ rank: Integer, totalXP: Integer }` |
+| `tuncion_xp:log:addXP`         | **Clientside** | Event occurs when a player gains XP          | `{ newRank: Bool, change: Integer }`            |
+| `tuncion_xp:log:removeXP`      | **Clientside** | Event occurs when a player loses XP          | `{ newRank: Bool, change: Integer }`            |
+| `tuncion_xp:log:setXP`         | **Clientside** | Event occurs when a player's XP is set       | `{ newRank: Bool, totalXP: Integer }`           |
+| `tuncion_xp:log:addRank`       | **Clientside** | Event occurs when a player's rank is added   | `{ rank: Integer, totalXP: Integer }`           |
+| `tuncion_xp:log:removeRank`    | **Clientside** | Event occurs when a player's rank is removed | `{ rank: Integer, totalXP: Integer }`           |
+| `tuncion_xp:log:setRank`       | **Clientside** | Event occurs when a player's rank is set     | `{ rank: Integer, totalXP: Integer }`           |
+| `tuncion_xp:log:resetPlayer`   | **Clientside** | Event occurs when a player is reset          | /                                               |
+| `tuncion_xp:log:resetPlayerXP` | **Clientside** | Event occurs when a player's XP is reset     | `{ rank: Integer, totalXP: Integer }`           |
 
 # Images
 
@@ -57,6 +75,6 @@ See the Documentation: https://docs.tuncion.de/scripts/tuncion-xp
 _This is just a example for [addXP](https://docs.tuncion.de/scripts/tuncion-xp/server/setter/addxp)_
 
 # To Do
-- [ ] Add Events
-- [ ] Level Multiplier
+- [x] Add Events
 - [x] Export: neededXP
+- [ ] Level Multiplier

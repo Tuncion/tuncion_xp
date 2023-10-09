@@ -66,6 +66,8 @@ function Player(source, identifier, xp, xpLog)
             },
         })
 
+        TriggerEvent('tuncion_xp:log:addXP', self.source, { ['newRank'] = LastRank ~= self.getRank(), ['change'] = xp })
+        TriggerClientEvent('tuncion_xp:log:addXP', self.source, { ['newRank'] = LastRank ~= self.getRank(), ['change'] = xp })
         TriggerClientEvent('tuncion_xp:client:NUIAnim', self.source, {
             ['type'] = 'addXP',
             ['change'] = xp,
@@ -123,6 +125,8 @@ function Player(source, identifier, xp, xpLog)
             },
         })
 
+        TriggerEvent('tuncion_xp:log:removeXP', self.source, { ['newRank'] = LastRank ~= self.getRank(), ['change'] = xp })
+        TriggerClientEvent('tuncion_xp:log:removeXP', self.source, { ['newRank'] = LastRank ~= self.getRank(), ['change'] = xp })
         TriggerClientEvent('tuncion_xp:client:NUIAnim', self.source, {
             ['type'] = 'removeXP',
             ['change'] = xp,
@@ -181,6 +185,8 @@ function Player(source, identifier, xp, xpLog)
             },
         })
 
+        TriggerEvent('tuncion_xp:log:setXP', self.source, { ['newRank'] = LastRank ~= self.getRank(), ['totalXP'] = self.getTotalXP() })
+        TriggerClientEvent('tuncion_xp:log:setXP', self.source, { ['newRank'] = LastRank ~= self.getRank(), ['totalXP'] = self.getTotalXP() })
         TriggerClientEvent('tuncion_xp:client:NUIAnim', self.source, {
             ['type'] = 'setXP',
             ['change'] = self.getRank(),
@@ -239,6 +245,8 @@ function Player(source, identifier, xp, xpLog)
             },
         })
 
+        TriggerEvent('tuncion_xp:log:addRank', self.source, { ['rank'] = self.getRank(), ['totalXP'] = self.getTotalXP() })
+        TriggerClientEvent('tuncion_xp:log:addRank', self.source, { ['rank'] = self.getRank(), ['totalXP'] = self.getTotalXP() })
         TriggerClientEvent('tuncion_xp:client:NUIAnim', self.source, {
             ['type'] = 'addRank',
             ['change'] = self.getRank(),
@@ -297,6 +305,8 @@ function Player(source, identifier, xp, xpLog)
             },
         })
 
+        TriggerEvent('tuncion_xp:log:removeRank', self.source, { ['rank'] = self.getRank(), ['totalXP'] = self.getTotalXP() })
+        TriggerClientEvent('tuncion_xp:log:removeRank', self.source, { ['rank'] = self.getRank(), ['totalXP'] = self.getTotalXP() })
         TriggerClientEvent('tuncion_xp:client:NUIAnim', self.source, {
             ['type'] = 'removeRank',
             ['change'] = self.getRank(),
@@ -355,6 +365,8 @@ function Player(source, identifier, xp, xpLog)
             },
         })
 
+        TriggerEvent('tuncion_xp:log:setRank', self.source, { ['rank'] = self.getRank(), ['totalXP'] = self.getTotalXP() })
+        TriggerClientEvent('tuncion_xp:log:setRank', self.source, { ['rank'] = self.getRank(), ['totalXP'] = self.getTotalXP() })
         TriggerClientEvent('tuncion_xp:client:NUIAnim', self.source, {
             ['type'] = 'setRank',
             ['change'] = self.getRank(),
@@ -408,6 +420,9 @@ function Player(source, identifier, xp, xpLog)
             },
         })
 
+        TriggerEvent('tuncion_xp:log:resetPlayer', self.source)
+        TriggerClientEvent('tuncion_xp:log:resetPlayer', self.source)
+
         return {
             ['newRank'] = LastRank ~= self.getRank(),
             ['rank'] = self.getRank(),
@@ -450,6 +465,9 @@ function Player(source, identifier, xp, xpLog)
                 icon_url = Config.DiscordWebhook.WebhookIconURL
             },
         })
+
+        TriggerEvent('tuncion_xp:log:resetPlayerXP', self.source, { ['rank'] = self.getRank(), ['totalXP'] = self.getTotalXP() })
+        TriggerClientEvent('tuncion_xp:log:resetPlayerXP', self.source, { ['rank'] = self.getRank(), ['totalXP'] = self.getTotalXP() })
 
         return {
             ['newRank'] = LastRank ~= self.getRank(),
