@@ -6,7 +6,7 @@ lua54 'yes'
 
 author "Tuncion"
 description "This resource is a complete XP Handler for your server"
-version "1.0.1"
+version "1.0.2"
 
 shared_scripts {
 	'shared/*.lua'
