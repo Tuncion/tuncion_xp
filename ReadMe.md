@@ -78,3 +78,6 @@ _This is just a example for [addXP](https://docs.tuncion.de/scripts/tuncion-xp/s
 - [x] Add Events
 - [x] Export: neededXP
 - [ ] Level Multiplier
+- [ ] Level Stages
+- [ ] XP Categories
+- [ ] XP Categories
