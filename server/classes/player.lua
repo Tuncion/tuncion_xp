@@ -4,6 +4,7 @@ function Player(source, identifier, xp, xpLog)
     self.identifier = identifier
     self.totalXP = xp or 0
     self.rank = CalculateRank(xp) or Config.DefaultLevel
+    self.stage = CalculateRankStage(self.rank) or Config.RankStage[Config.DefaultLevel]
     self.xp = CalculateXP(xp) or 0
     self.xpLog = xpLog or {}
 
@@ -24,6 +25,10 @@ function Player(source, identifier, xp, xpLog)
         return self.rank
     end
 
+    function self.getRankStage()
+        return self.stage
+    end
+
     function self.getXPLog()
         return self.xpLog
     end
@@ -33,6 +38,7 @@ function Player(source, identifier, xp, xpLog)
         self.totalXP = self.getTotalXP() + xp
         self.xp = CalculateXP(self.totalXP)
         self.rank = CalculateRank(self.totalXP)
+        self.stage = CalculateRankStage(self.rank)
 
         MySQL.Async.execute('UPDATE player_xp SET xp = @xp WHERE identifier = @identifier', {
             ['@identifier'] = self.identifier,
@@ -81,6 +87,7 @@ function Player(source, identifier, xp, xpLog)
         return {
             ['newRank'] = LastRank ~= self.getRank(),
             ['rank'] = self.getRank(),
+            ['rankStage'] = self.getRankStage(),
             ['totalXP'] = self.getTotalXP(),
             ['xp'] = self.getXP(),
             ['xpLog'] = self.getXPLog()
@@ -92,6 +99,7 @@ function Player(source, identifier, xp, xpLog)
         self.totalXP = self.getTotalXP() - xp
         self.xp = CalculateXP(self.totalXP)
         self.rank = CalculateRank(self.totalXP)
+        self.stage = CalculateRankStage(self.rank)
 
         MySQL.Async.execute('UPDATE player_xp SET xp = @xp WHERE identifier = @identifier', {
             ['@identifier'] = self.identifier,
@@ -140,6 +148,7 @@ function Player(source, identifier, xp, xpLog)
         return {
             ['newRank'] = LastRank ~= self.getRank(),
             ['rank'] = self.getRank(),
+            ['rankStage'] = self.getRankStage(),
             ['totalXP'] = self.getTotalXP(),
             ['xp'] = self.getXP(),
             ['xpLog'] = self.getXPLog()
@@ -152,6 +161,7 @@ function Player(source, identifier, xp, xpLog)
         self.totalXP = xp
         self.xp = CalculateXP(self.totalXP)
         self.rank = CalculateRank(self.totalXP)
+        self.stage = CalculateRankStage(self.rank)
 
         MySQL.Async.execute('UPDATE player_xp SET xp = @xp WHERE identifier = @identifier', {
             ['@identifier'] = self.identifier,
@@ -200,6 +210,7 @@ function Player(source, identifier, xp, xpLog)
         return {
             ['newRank'] = LastRank ~= self.getRank(),
             ['rank'] = self.getRank(),
+            ['rankStage'] = self.getRankStage(),
             ['totalXP'] = self.getTotalXP(),
             ['xp'] = self.getXP(),
             ['xpLog'] = self.getXPLog()
@@ -212,6 +223,7 @@ function Player(source, identifier, xp, xpLog)
         self.totalXP = CalculateXPToRank(LastRank + rank)
         self.xp = CalculateXP(self.totalXP)
         self.rank = CalculateRank(self.totalXP)
+        self.stage = CalculateRankStage(self.rank)
 
         MySQL.Async.execute('UPDATE player_xp SET xp = @xp WHERE identifier = @identifier', {
             ['@identifier'] = self.identifier,
@@ -260,6 +272,7 @@ function Player(source, identifier, xp, xpLog)
         return {
             ['newRank'] = LastRank ~= self.getRank(),
             ['rank'] = self.getRank(),
+            ['rankStage'] = self.getRankStage(),
             ['totalXP'] = self.getTotalXP(),
             ['xp'] = self.getXP(),
             ['xpLog'] = self.getXPLog()
@@ -272,6 +285,7 @@ function Player(source, identifier, xp, xpLog)
         self.totalXP = CalculateXPToRank(LastRank - rank)
         self.xp = CalculateXP(self.totalXP)
         self.rank = CalculateRank(self.totalXP)
+        self.stage = CalculateRankStage(self.rank)
 
         MySQL.Async.execute('UPDATE player_xp SET xp = @xp WHERE identifier = @identifier', {
             ['@identifier'] = self.identifier,
@@ -320,6 +334,7 @@ function Player(source, identifier, xp, xpLog)
         return {
             ['newRank'] = LastRank ~= self.getRank(),
             ['rank'] = self.getRank(),
+            ['rankStage'] = self.getRankStage(),
             ['totalXP'] = self.getTotalXP(),
             ['xp'] = self.getXP(),
             ['xpLog'] = self.getXPLog()
@@ -332,6 +347,7 @@ function Player(source, identifier, xp, xpLog)
         self.totalXP = CalculateXPToRank(rank)
         self.xp = CalculateXP(self.totalXP)
         self.rank = CalculateRank(self.totalXP)
+        self.stage = CalculateRankStage(self.rank)
 
         MySQL.Async.execute('UPDATE player_xp SET xp = @xp WHERE identifier = @identifier', {
             ['@identifier'] = self.identifier,
@@ -380,6 +396,7 @@ function Player(source, identifier, xp, xpLog)
         return {
             ['newRank'] = LastRank ~= self.getRank(),
             ['rank'] = self.getRank(),
+            ['rankStage'] = self.getRankStage(),
             ['totalXP'] = self.getTotalXP(),
             ['xp'] = self.getXP(),
             ['xpLog'] = self.getXPLog()
@@ -392,6 +409,7 @@ function Player(source, identifier, xp, xpLog)
         self.totalXP = 0
         self.xp = CalculateXP(self.totalXP)
         self.rank = CalculateRank(self.totalXP)
+        self.stage = CalculateRankStage(self.rank)
         self.xpLog = {}
 
         MySQL.Async.execute('UPDATE player_xp SET xp = @xp WHERE identifier = @identifier', {
@@ -426,6 +444,7 @@ function Player(source, identifier, xp, xpLog)
         return {
             ['newRank'] = LastRank ~= self.getRank(),
             ['rank'] = self.getRank(),
+            ['rankStage'] = self.getRankStage(),
             ['totalXP'] = self.getTotalXP(),
             ['xp'] = self.getXP(),
             ['xpLog'] = self.getXPLog()
@@ -438,6 +457,7 @@ function Player(source, identifier, xp, xpLog)
         self.totalXP = CalculateXPToRank(LastRank)
         self.xp = CalculateXP(self.totalXP)
         self.rank = CalculateRank(self.totalXP)
+        self.stage = CalculateRankStage(self.rank)
         self.xpLog = {}
 
         MySQL.Async.execute('UPDATE player_xp SET xp = @xp WHERE identifier = @identifier', {
@@ -472,6 +492,7 @@ function Player(source, identifier, xp, xpLog)
         return {
             ['newRank'] = LastRank ~= self.getRank(),
             ['rank'] = self.getRank(),
+            ['rankStage'] = self.getRankStage(),
             ['totalXP'] = self.getTotalXP(),
             ['xp'] = self.getXP(),
             ['xpLog'] = self.getXPLog()
@@ -531,6 +552,20 @@ function CalculateNeededXPToUprank(xp)
     end
 
     return math.floor(xpNeeded - xp)
+end
+
+function CalculateRankStage(level)
+    local stage = nil
+    local minLevel = 0
+    for k, v in pairs(Config.RankStage) do
+        if minLevel < k then
+            if level >= k then
+                stage = v
+                minLevel = k
+            end
+        end
+    end
+    return stage
 end
 
 function SendDiscordWebhook(source, WebhookData)

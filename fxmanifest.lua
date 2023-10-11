@@ -38,6 +38,7 @@ server_exports {
 	'getXP',
 	'getNeededXP',
 	'getRank',
+	'getRankStage',
 	'getXPLog',
 
 	-- Setter

@@ -183,6 +183,16 @@ function getRank(PlayerID)
     end
 end
 
+function getRankStage(PlayerID)
+    local PlayerData = Players[PlayerID]
+
+    if PlayerData then
+        return PlayerData.getRankStage()
+    else
+        return nil
+    end
+end
+
 function getXPLog(PlayerID)
     local PlayerData = Players[PlayerID]
 

@@ -26,6 +26,7 @@ See the Documentation: https://docs.tuncion.de/scripts/tuncion-xp
 - getXP
 - getNeededXP
 - getRank
+- getRankStage
 - getXPLog
  
 **Setter**
@@ -78,6 +79,6 @@ _This is just a example for [addXP](https://docs.tuncion.de/scripts/tuncion-xp/s
 - [x] Add Events
 - [x] Export: neededXP
 - [ ] Level Multiplier
-- [ ] Level Stages
+- [x] Level Stages
 - [ ] XP Categories
 - [ ] XP Categories Front-End
