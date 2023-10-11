@@ -80,4 +80,4 @@ _This is just a example for [addXP](https://docs.tuncion.de/scripts/tuncion-xp/s
 - [ ] Level Multiplier
 - [ ] Level Stages
 - [ ] XP Categories
-- [ ] XP Categories
+- [ ] XP Categories Front-End
