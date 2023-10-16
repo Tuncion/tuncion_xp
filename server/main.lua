@@ -22,6 +22,13 @@ AddEventHandler("tuncion_xp:server:RegisterPlayer", function()
     end
 end)
 
+-- Register Commands
+for k, v in pairs(Config.LevelCommand) do
+    RegisterCommand(v, function(source, args, rawCommand)
+        LevelCommand(source)
+    end, false)
+end
+
 function CreatePlayerInstance(PlayerID, PlayerIdentifier)
     MySQL.Async.fetchAll('SELECT * FROM player_xp WHERE identifier = @identifier', {
         ['@identifier'] = PlayerIdentifier
@@ -59,13 +66,18 @@ function GetPlayerLicense(PlayerID)
     local PlayerIdentifier = nil
 
     -- Get Player Identifier
-    for k,v in pairs(GetPlayerIdentifiers(PlayerID)) do
+    for k, v in pairs(GetPlayerIdentifiers(PlayerID)) do
         if string.sub(v, 1, string.len("license:")) == "license:" then
-          PlayerIdentifier = v:gsub("license:", "")
+            PlayerIdentifier = v:gsub("license:", "")
         end
     end
 
     return PlayerIdentifier
+end
+
+function LevelCommand(source)
+    local Message = ("~f~Your XP Card~s~ (~f~%s~s~):\n~c~Stage:~s~ ~o~%s~s~\n~c~Level:~s~ %s (~g~%sXP left~s~)"):format(source, getRankStage(source), getRank(source), getNeededXP(source))
+    TriggerClientEvent('tuncion_xp:client:Notify', source, Message)
 end
 
 ---- Exports ----
@@ -75,15 +87,15 @@ function getGlobalXP(CurrentlyOnline)
     local TotalXP = 0
     local IsReady = false
 
-    if CurrentlyOnline then        
-        for k,v in pairs(Players) do
+    if CurrentlyOnline then
+        for k, v in pairs(Players) do
             TotalXP = TotalXP + v.getTotalXP()
         end
         IsReady = true
     else
         MySQL.Async.fetchAll('SELECT * FROM player_xp', {}, function(MySQLData)
             if MySQLData then
-                for k,v in pairs(MySQLData) do
+                for k, v in pairs(MySQLData) do
                     TotalXP = TotalXP + v.xp
                 end
                 IsReady = true
@@ -99,15 +111,15 @@ function getGlobalRank(CurrentlyOnline)
     local TotalRank = 0
     local IsReady = false
 
-    if CurrentlyOnline then        
-        for k,v in pairs(Players) do
+    if CurrentlyOnline then
+        for k, v in pairs(Players) do
             TotalRank = TotalRank + v.getRank()
         end
         IsReady = true
     else
         MySQL.Async.fetchAll('SELECT * FROM player_xp', {}, function(MySQLData)
             if MySQLData then
-                for k,v in pairs(MySQLData) do
+                for k, v in pairs(MySQLData) do
                     TotalRank = TotalRank + CalculateRank(v.xp)
                 end
                 IsReady = true
@@ -123,15 +135,15 @@ function getGlobalRank(CurrentServer)
     local TotalRank = 0
     local IsReady = false
 
-    if CurrentServer then        
-        for k,v in pairs(Players) do
+    if CurrentServer then
+        for k, v in pairs(Players) do
             TotalRank = TotalRank + v.getRank()
         end
         IsReady = true
     else
         MySQL.Async.fetchAll('SELECT * FROM player_xp', {}, function(MySQLData)
             if MySQLData then
-                for k,v in pairs(MySQLData) do
+                for k, v in pairs(MySQLData) do
                     TotalRank = TotalRank + CalculateRank(v.xp)
                 end
                 IsReady = true

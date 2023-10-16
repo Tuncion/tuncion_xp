@@ -26,5 +26,17 @@ AddEventHandler('tuncion_xp:client:NUIAnim', function(data)
             SendNUIMessage({ type = 'newRank', change = Change })
         end
     end
-
 end)
+
+-- Notification Event Handler
+RegisterNetEvent('tuncion_xp:client:Notify')
+AddEventHandler('tuncion_xp:client:Notify', function(msg)
+    ShowNotify(msg)
+end)
+
+-- Notify Function
+function ShowNotify(msg)
+    SetNotificationTextEntry('STRING')
+    AddTextComponentString(msg)
+    DrawNotification(false, true)
+end

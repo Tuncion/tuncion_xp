@@ -4,6 +4,7 @@ Config.DefaultLevel = 1 -- Default Level for new players
 Config.XPLevelThreshold = 100 -- XP needed to level up
 Config.XPIncreasement = 25 -- XP Increasement for each Level (Level 1: 100 XP, Level 2: 125 XP, Level 3: 150 XP, etc.)
 Config.XPLogLimit = 15 -- How many XP Logs should be stored internal
+Config.LevelCommand = { 'level', 'xp' } -- Command to see your own Level/XP etc.
 Config.RankStage = { -- Rank Stages for the Level System
     [1] = "Newbie",
     [5] = "Beginner",

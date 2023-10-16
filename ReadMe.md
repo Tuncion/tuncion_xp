@@ -80,5 +80,6 @@ _This is just a example for [addXP](https://docs.tuncion.de/scripts/tuncion-xp/s
 - [x] Export: neededXP
 - [ ] Level Multiplier
 - [x] Level Stages
+- [x] Command: See own Level
 - [ ] XP Categories
 - [ ] XP Categories Front-End

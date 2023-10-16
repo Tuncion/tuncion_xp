@@ -6,7 +6,7 @@ lua54 'yes'
 
 author "Tuncion"
 description "This resource is a complete XP Handler for your server"
-version "1.0.2"
+version "1.0.3"
 
 shared_scripts {
 	'shared/*.lua'
@@ -19,8 +19,8 @@ client_scripts {
 ui_page 'nui/index.html'
 
 files {
-    'nui/*.**',
-    'nui/**/*.**'
+	'nui/*.**',
+	'nui/**/*.**'
 }
 
 server_scripts {

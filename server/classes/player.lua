@@ -67,7 +67,7 @@ function Player(source, identifier, xp, xpLog)
             title = "🪙 Add XP",
             description = ("**Player:** `%s` (`%s`)\n**Change:** `%sXP` **->** `%sXP`\n**Rank:** `Level %s`\n**Reason:** `%s`\n**Time:** <t:%s:f> (<t:%s:R>)"):format(GetPlayerName(self.source), self.source, self.getTotalXP() - xp, self.getTotalXP(), self.getRank(), reason or '/', os.time(), os.time()),
             footer = {
-                text  = "Made with ❤️ by Tuncion",
+                text = "Made with ❤️ by Tuncion",
                 icon_url = Config.DiscordWebhook.WebhookIconURL
             },
         })
@@ -128,7 +128,7 @@ function Player(source, identifier, xp, xpLog)
             title = "🪙 Remove XP",
             description = ("**Player:** `%s` (`%s`)\n**Change:** `%sXP` **->** `%sXP`\n**Rank:** `Level %s`\n**Reason:** `%s`\n**Time:** <t:%s:f> (<t:%s:R>)"):format(GetPlayerName(self.source), self.source, self.getTotalXP() + xp, self.getTotalXP(), self.getRank(), reason or '/', os.time(), os.time()),
             footer = {
-                text  = "Made with ❤️ by Tuncion",
+                text = "Made with ❤️ by Tuncion",
                 icon_url = Config.DiscordWebhook.WebhookIconURL
             },
         })
@@ -190,7 +190,7 @@ function Player(source, identifier, xp, xpLog)
             title = "🪙 Set XP",
             description = ("**Player:** `%s` (`%s`)\n**Change:** `%sXP` **->** `%sXP`\n**Rank:** `Level %s`\n**Reason:** `%s`\n**Time:** <t:%s:f> (<t:%s:R>)"):format(GetPlayerName(self.source), self.source, LastXP, self.getTotalXP(), self.getRank(), reason or '/', os.time(), os.time()),
             footer = {
-                text  = "Made with ❤️ by Tuncion",
+                text = "Made with ❤️ by Tuncion",
                 icon_url = Config.DiscordWebhook.WebhookIconURL
             },
         })
@@ -252,7 +252,7 @@ function Player(source, identifier, xp, xpLog)
             title = "🥇 Add Rank",
             description = ("**Player:** `%s` (`%s`)\n**Change:** `Level %s` **->** `Level %s`\n**XP:** `%sXP`\n**Reason:** `%s`\n**Time:** <t:%s:f> (<t:%s:R>)"):format(GetPlayerName(self.source), self.source, CalculateRank(LastXP), CalculateRank(self.getTotalXP()), self.getTotalXP(), reason or '/', os.time(), os.time()),
             footer = {
-                text  = "Made with ❤️ by Tuncion",
+                text = "Made with ❤️ by Tuncion",
                 icon_url = Config.DiscordWebhook.WebhookIconURL
             },
         })
@@ -314,7 +314,7 @@ function Player(source, identifier, xp, xpLog)
             title = "🥇 Remove Rank",
             description = ("**Player:** `%s` (`%s`)\n**Change:** `Level %s` **->** `Level %s`\n**XP:** `%sXP`\n**Reason:** `%s`\n**Time:** <t:%s:f> (<t:%s:R>)"):format(GetPlayerName(self.source), self.source, CalculateRank(LastXP), CalculateRank(self.getTotalXP()), self.getTotalXP(), reason or '/', os.time(), os.time()),
             footer = {
-                text  = "Made with ❤️ by Tuncion",
+                text = "Made with ❤️ by Tuncion",
                 icon_url = Config.DiscordWebhook.WebhookIconURL
             },
         })
@@ -376,7 +376,7 @@ function Player(source, identifier, xp, xpLog)
             title = "🥇 Set Rank",
             description = ("**Player:** `%s` (`%s`)\n**Change:** `Level %s` **->** `Level %s`\n**XP:** `%sXP`\n**Reason:** `%s`\n**Time:** <t:%s:f> (<t:%s:R>)"):format(GetPlayerName(self.source), self.source, CalculateRank(LastXP), CalculateRank(self.getTotalXP()), self.getTotalXP(), reason or '/', os.time(), os.time()),
             footer = {
-                text  = "Made with ❤️ by Tuncion",
+                text = "Made with ❤️ by Tuncion",
                 icon_url = Config.DiscordWebhook.WebhookIconURL
             },
         })
@@ -433,7 +433,7 @@ function Player(source, identifier, xp, xpLog)
             title = "🔨 Reset Player",
             description = ("**Player:** `%s` (`%s`)\n**Change:** `%sXP` **->** `%sXP`\n**Rank:** `Level %s`\n**Time:** <t:%s:f> (<t:%s:R>)"):format(GetPlayerName(self.source), self.source, LastXP, self.getTotalXP(), self.getRank(), os.time(), os.time()),
             footer = {
-                text  = "Made with ❤️ by Tuncion",
+                text = "Made with ❤️ by Tuncion",
                 icon_url = Config.DiscordWebhook.WebhookIconURL
             },
         })
@@ -481,7 +481,7 @@ function Player(source, identifier, xp, xpLog)
             title = "🔨 Reset Player XP",
             description = ("**Player:** `%s` (`%s`)\n**Change:** `%sXP` **->** `%sXP`\n**Rank:** `Level %s`\n**Time:** <t:%s:f> (<t:%s:R>)"):format(GetPlayerName(self.source), self.source, LastXP, self.getTotalXP(), self.getRank(), os.time(), os.time()),
             footer = {
-                text  = "Made with ❤️ by Tuncion",
+                text = "Made with ❤️ by Tuncion",
                 icon_url = Config.DiscordWebhook.WebhookIconURL
             },
         })
@@ -569,102 +569,102 @@ function CalculateRankStage(level)
 end
 
 function SendDiscordWebhook(source, WebhookData)
-    local source = source;
-    local EmbedDataArray = {};
-    local EmbedData = {};
+    local source = source
+    local EmbedDataArray = {}
+    local EmbedData = {}
 
-    EmbedData.color = WebhookData.color;
+    EmbedData.color = WebhookData.color
 
     if WebhookData.author then
-        EmbedData.author = {};
-        EmbedData.author.name = WebhookData.author.name;
-        EmbedData.author.icon_url = WebhookData.author.icon_url;
-    end;
+        EmbedData.author = {}
+        EmbedData.author.name = WebhookData.author.name
+        EmbedData.author.icon_url = WebhookData.author.icon_url
+    end
 
     if WebhookData.title then
-        EmbedData.title = WebhookData.title;
-    end;
+        EmbedData.title = WebhookData.title
+    end
 
     if WebhookData.thumbnail then
-        EmbedData.thumbnail = {};
-        EmbedData.thumbnail.url = WebhookData.thumbnail;
-    end;
+        EmbedData.thumbnail = {}
+        EmbedData.thumbnail.url = WebhookData.thumbnail
+    end
 
     if WebhookData.includeIdentifiers then
-        EmbedData.description = WebhookData.description .. GetIdentifierString(source);
+        EmbedData.description = WebhookData.description .. GetIdentifierString(source)
     else
-        EmbedData.description = WebhookData.description;
-    end;
+        EmbedData.description = WebhookData.description
+    end
 
     if WebhookData.footer then
-        EmbedData.footer = {};
-        EmbedData.footer.text = WebhookData.footer.text;
-        EmbedData.footer.icon_url = WebhookData.footer.icon_url;
-    end;
+        EmbedData.footer = {}
+        EmbedData.footer.text = WebhookData.footer.text
+        EmbedData.footer.icon_url = WebhookData.footer.icon_url
+    end
 
-    table.insert(EmbedDataArray, EmbedData);
+    table.insert(EmbedDataArray, EmbedData)
 
-    PerformHttpRequest(WebhookData.link, function(err, text, headers) end, 'POST', json.encode({embeds = EmbedDataArray}), { ['Content-Type'] = 'application/json' })
+    PerformHttpRequest(WebhookData.link, function(err, text, headers) end, 'POST', json.encode({ embeds = EmbedDataArray }), { ['Content-Type'] = 'application/json' })
 end
 
 function GetIdentifierString(source)
-    local source = source;
-    local CurrentStringData = '```';
-    CurrentStringData = CurrentStringData .. '\n' .. 'ID: ' .. source;
-    CurrentStringData = CurrentStringData .. '\n' .. 'Ping: ' .. GetPlayerPing(source) .. 'ms';
+    local source = source
+    local CurrentStringData = '```'
+    CurrentStringData = CurrentStringData .. '\n' .. 'ID: ' .. source
+    CurrentStringData = CurrentStringData .. '\n' .. 'Ping: ' .. GetPlayerPing(source) .. 'ms'
 
     -- Add Identifiers
-    local CurrentLicense = false;
-    local CurrentSteamID = false;
-    local CurrentDiscordID = false;
-    local CurrentXboxID = false;
-    local CurrentLiveID	= false;
-    local CurrentIPv4 = false;
+    local CurrentLicense = false
+    local CurrentSteamID = false
+    local CurrentDiscordID = false
+    local CurrentXboxID = false
+    local CurrentLiveID = false
+    local CurrentIPv4 = false
 
-    for k,v in pairs(GetPlayerIdentifiers(source)) do
+    for k, v in pairs(GetPlayerIdentifiers(source)) do
         if string.sub(v, 1, string.len("license:")) == "license:" then
-            CurrentLicense = v:gsub('license:', '');
+            CurrentLicense = v:gsub('license:', '')
         elseif string.sub(v, 1, string.len("steam:")) == "steam:" then
-            CurrentSteamID = v:gsub('steam:', '');
+            CurrentSteamID = v:gsub('steam:', '')
         elseif string.sub(v, 1, string.len("discord:")) == "discord:" then
-            CurrentDiscordID = v:gsub('discord:', '');
+            CurrentDiscordID = v:gsub('discord:', '')
         elseif string.sub(v, 1, string.len("xbl:")) == "xbl:" then
-            CurrentXboxID  = v:gsub('xbl:', '');
+            CurrentXboxID = v:gsub('xbl:', '')
         elseif string.sub(v, 1, string.len("live:")) == "live:" then
-            CurrentLiveID = v:gsub('live:', '');
+            CurrentLiveID = v:gsub('live:', '')
         elseif string.sub(v, 1, string.len("ip:")) == "ip:" then
-            CurrentIPv4 = v:gsub('ip:', '');
-        end;
-    end;
+            CurrentIPv4 = v:gsub('ip:', '')
+        end
+    end
 
     if CurrentLicense then
-        CurrentStringData = CurrentStringData .. '\n' .. 'Identifier: ' .. CurrentLicense;
-    end;
+        CurrentStringData = CurrentStringData .. '\n' .. 'Identifier: ' .. CurrentLicense
+    end
 
     if GetPlayerName(source) then
-        CurrentStringData = CurrentStringData .. '\n' .. 'SteamName: ' .. GetPlayerName(source);
-    end;
+        CurrentStringData = CurrentStringData .. '\n' .. 'SteamName: ' .. GetPlayerName(source)
+    end
 
     if CurrentSteamID then
-        CurrentStringData = CurrentStringData .. '\n' .. 'SteamID: ' .. CurrentSteamID;
-    end;
+        CurrentStringData = CurrentStringData .. '\n' .. 'SteamID: ' .. CurrentSteamID
+    end
 
     if CurrentDiscordID then
-        CurrentStringData = CurrentStringData .. '\n' .. 'DiscordID: ' .. CurrentDiscordID;
-    end;
+        CurrentStringData = CurrentStringData .. '\n' .. 'DiscordID: ' .. CurrentDiscordID
+    end
 
     if CurrentXboxID then
-        CurrentStringData = CurrentStringData .. '\n' .. 'XboxID: ' .. CurrentXboxID;
-    end;
+        CurrentStringData = CurrentStringData .. '\n' .. 'XboxID: ' .. CurrentXboxID
+    end
 
     if CurrentLiveID then
-        CurrentStringData = CurrentStringData .. '\n' .. 'LiveID: ' .. CurrentLiveID;
-    end;
+        CurrentStringData = CurrentStringData .. '\n' .. 'LiveID: ' .. CurrentLiveID
+    end
 
     if CurrentIPv4 then
-        CurrentStringData = CurrentStringData .. '\n' .. 'IPv4: ' .. CurrentIPv4;
-    end;
+        CurrentStringData = CurrentStringData .. '\n' .. 'IPv4: ' .. CurrentIPv4
+    end
 
-    CurrentStringData = CurrentStringData .. '\n' .. '```';
-    return CurrentStringData;
+    CurrentStringData = CurrentStringData .. '\n' .. '```'
+    return CurrentStringData
 end
