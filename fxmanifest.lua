@@ -6,11 +6,7 @@ lua54 'yes'
 
 author "Tuncion"
 description "This resource is a complete XP Handler for your server"
-version "1.0.3"
-
-shared_scripts {
-	'shared/*.lua'
-}
+version "1.0.4"
 
 client_scripts {
 	'client/*.lua'
@@ -25,6 +21,7 @@ files {
 
 server_scripts {
 	'@oxmysql/lib/MySQL.lua',
+	'config/*.lua',
 	'server/classes/*.lua',
 	'server/*.lua'
 }
