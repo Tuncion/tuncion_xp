@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `player_xp` (
 
 CREATE TABLE IF NOT EXISTS `player_xpLog` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
-    `identifier` varchar(60) NOT NULL,
+    `identifier` varchar(46) NOT NULL,
     `type` varchar(60) DEFAULT '/',
     `change` varchar(60) DEFAULT '/',
     `oldXP` int(11) NOT NULL,

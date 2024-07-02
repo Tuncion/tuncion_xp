@@ -1,6 +1,3 @@
--- Register on server
-TriggerServerEvent('tuncion_xp:server:RegisterPlayer')
-
 -- NUI Animation Event Handler
 RegisterNetEvent('tuncion_xp:client:NUIAnim')
 AddEventHandler('tuncion_xp:client:NUIAnim', function(data)
