@@ -63,13 +63,13 @@ See the Documentation: https://docs.tuncion.de/scripts/tuncion-xp
 # Images
 
 **🪙 Gain XP**\
-![AddXP](https://s6.gifyu.com/images/S6h6P.gif)
+![AddXP](https://i.imgur.com/3sEH9nx.gif)
 
 **📈 Remove XP**\
-![RemoveXP](https://s6.gifyu.com/images/S6h8n.gif)
+![RemoveXP](https://i.imgur.com/YackvQQ.gif)
 
 **🚀 Reach new Level**\
-![ReachLevel](https://s6.gifyu.com/images/S6h8W.gif)
+![ReachLevel](https://i.imgur.com/Ox8TBbT.gif)
 
 **👀 Webhooks for each export**\
 ![NotifyWebhook](https://i.imgur.com/K54u0yM.png)\
