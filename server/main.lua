@@ -10,15 +10,21 @@ function ErrorMessage(msg)
 end
 
 -- Load Players
-RegisterNetEvent("tuncion_xp:server:RegisterPlayer")
-AddEventHandler("tuncion_xp:server:RegisterPlayer", function()
-    local PlayerID = source
-    local PlayerIdentifier = GetPlayerLicense(PlayerID)
-
+function LoadPlayer(PlayerID)
+    local PlayerIdentifier = Config.GetPlayerIdentifier(PlayerID)
     if PlayerIdentifier then
         CreatePlayerInstance(PlayerID, PlayerIdentifier)
     else
         ErrorMessage(("There is no license found for player %s (%s)"):format(GetPlayerName(PlayerID), PlayerID))
+    end
+end
+Config.ReadyEvent(LoadPlayer)
+
+-- Load all already loaded Players
+Citizen.CreateThread(function()
+    Citizen.Wait(1000)
+    for _, playerId in ipairs(GetPlayers()) do
+        LoadPlayer(tonumber(playerId))
     end
 end)
 
@@ -60,19 +66,6 @@ function CreatePlayerInstance(PlayerID, PlayerIdentifier)
             end)
         end
     end)
-end
-
-function GetPlayerLicense(PlayerID)
-    local PlayerIdentifier = nil
-
-    -- Get Player Identifier
-    for k, v in pairs(GetPlayerIdentifiers(PlayerID)) do
-        if string.sub(v, 1, string.len("license:")) == "license:" then
-            PlayerIdentifier = v:gsub("license:", "")
-        end
-    end
-
-    return PlayerIdentifier
 end
 
 function LevelCommand(source)
