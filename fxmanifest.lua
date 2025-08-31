@@ -7,6 +7,7 @@ lua54 'yes'
 author "Tuncion"
 description "This resource is a complete XP Handler for your server"
 version "1.0.4"
+patch '#0'
 
 client_scripts {
 	'client/*.lua'

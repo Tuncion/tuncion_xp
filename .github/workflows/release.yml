@@ -1,0 +1,95 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      update_type:
+        description: "Select the type of update"
+        required: true
+        type: choice
+        options:
+          - Hotfix
+          - Release
+env:
+  REPOSITORY_NAME: ${{ github.event.repository.name }}
+
+jobs:
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    if: |
+      github.event.head_commit.author.email != '41898282+github-actions[bot]@users.noreply.github.com' &&
+      (
+        github.event_name == 'workflow_dispatch' ||
+        contains(github.event.head_commit.message, '[release]') ||
+        contains(github.event.head_commit.message, '[hotfix]') ||
+        contains(github.event.head_commit.message, '[Release]') ||
+        contains(github.event.head_commit.message, '[Hotfix]')
+      )
+
+    steps:
+        - name: Checkout Source Code
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+            ref: ${{ github.event.repository.default_branch }}
+            token: ${{ secrets.GITHUB_TOKEN }}
+
+        - name: Install Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18
+
+        - name: Install npm Dependencies
+          run: |
+            cd ./.github/actions && npm i
+
+        - name: Get Commit Count
+          id: commit_count
+          run: |
+            COMMIT_COUNT=$(git rev-list --all --count)
+            echo "COMMIT_COUNT=$COMMIT_COUNT" >> $GITHUB_ENV
+
+        - name: Update Manifest Data
+          run: node .github/actions/update-manifest-data.js
+          env:
+            RELEASE_TYPE: ${{ github.event.inputs.update_type }}
+            RELEASE_USER: ${{ github.actor }}
+            RELEASE_PATCH: ${{ env.COMMIT_COUNT }}
+
+        - name: Push Manifest Change
+          uses: EndBug/add-and-commit@v8
+          with:
+            add: fxmanifest.lua
+            push: true
+            author_name: Tuncion Helper
+            author_email: 41898282+github-actions[bot]@users.noreply.github.com
+            message: "chore: Updated manifest data for release ${{ env.RELEASE_VERSION }}"
+
+        - name: Create Release Folder
+          run: node .github/actions/create-release-folder.js
+
+        - name: Delete Development Environment
+          run: node .github/actions/delete-dev-environment.js
+
+        - name: Archive Files
+          run: node .github/actions/archive-files.js
+
+        - name: Generate Changelog
+          run: node .github/actions/generate-changelog.js
+          env:
+            RELEASE_TYPE: ${{ github.event.inputs.update_type }}
+
+        - name: Create release
+          uses: softprops/action-gh-release@v1
+          with:
+            name: "🌟 v${{ env.RELEASE_VERSION }}"
+            tag_name: v${{ env.RELEASE_VERSION }}
+            body_path: changelog.md
+            files: ${{ github.event.repository.name }}.zip

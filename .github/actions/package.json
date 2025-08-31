@@ -1,0 +1,15 @@
+{
+  "name": "action-enviroment",
+  "version": "1.0.0",
+  "description": "GitHub Action Pipeline Enviroment",
+  "main": "update-manifest-data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "! Tuncion#0809",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "zip-dir": "^2.0.0"
+  }
+}

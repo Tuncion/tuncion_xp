@@ -1,0 +1,16 @@
+name: FiveM Lint
+on: [push, pull_request]
+jobs:
+  lint:
+    name: Resource Check
+    runs-on: ubuntu-latest
+    if: github.event.head_commit.author.email != '41898282+github-actions[bot]@users.noreply.github.com'
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Lint
+        uses: iLLeniumStudios/fivem-lua-lint-action@v2
+        with:
+          capture: "junit.xml"
+          args: "-t --formatter JUnit"
+          extra_libs: mysql
