@@ -53,6 +53,7 @@ The following **FiveM Scripts** already include automatic XP integration out of 
 - ⚡ **[Dream Solarsystem (dream_solarsystems)](https://shop.dream-services.eu/shop/product/6547610)**  
 - 🚗 **[Dream Used Cardealer (dream_usedcardealer)](https://shop.dream-services.eu/shop/product/6782499)**  
 - 🎰 **[Dream Vending (dream_vending)](https://shop.dream-services.eu/shop/product/6859945)**  
+- 💨 **[Dream Wind Turbines (dream_windturbines)](https://shop.dream-services.eu/shop/product/6989338)**  
 
 💡 Community-made integrations are also welcome!  
 If you’ve created an integration, feel free to **contact us to have it added to this list**.  
