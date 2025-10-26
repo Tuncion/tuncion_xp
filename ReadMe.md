@@ -46,14 +46,15 @@ _Example for [addXP](https://docs.tuncion.de/scripts/tuncion-xp/server/setter/ad
 The following **FiveM Scripts** already include automatic XP integration out of the box:  
 
 - 🚔 **[Dream Police Impound (dream_policeimpound)](https://github.com/Dream-Services/dream_policeimpound)** **(🆓 Free)**
-- 🪙 **[Dream Cryptomining (dream_cryptomining)](https://shop.dream-services.eu/shop/product/6243620)**  
-- 🚙 **[Dream Fakeplates (dream_fakeplates)](https://shop.dream-services.eu/shop/product/6235257)**  
-- ♻️ **[Dream Junkyard (dream_junkyard)](https://shop.dream-services.eu/shop/product/6989336)**  
-- 🔌 **[Dream Solarjob (dream_solarjob)](https://shop.dream-services.eu/shop/product/6543495)**  
-- ⚡ **[Dream Solarsystem (dream_solarsystems)](https://shop.dream-services.eu/shop/product/6547610)**  
-- 🚗 **[Dream Used Cardealer (dream_usedcardealer)](https://shop.dream-services.eu/shop/product/6782499)**  
-- 🎰 **[Dream Vending (dream_vending)](https://shop.dream-services.eu/shop/product/6859945)**  
-- 💨 **[Dream Wind Turbines (dream_windturbines)](https://shop.dream-services.eu/shop/product/6989338)**  
+- 🪙 **[Dream Cryptomining (dream_cryptomining)](https://shop.dream-services.eu/products/6243620)**  
+- 🚙 **[Dream Fakeplates (dream_fakeplates)](https://shop.dream-services.eu/products/6235257)**  
+- ♻️ **[Dream Junkyard (dream_junkyard)](https://shop.dream-services.eu/products/6989336)**  
+- 🔌 **[Dream Solarjob (dream_solarjob)](https://shop.dream-services.eu/products/6543495)**  
+- ⚡ **[Dream Solarsystem (dream_solarsystems)](https://shop.dream-services.eu/products/6547610)**  
+- 🚗 **[Dream Used Cardealer (dream_usedcardealer)](https://shop.dream-services.eu/products/6782499)**  
+- 🎰 **[Dream Vending (dream_vending)](https://shop.dream-services.eu/products/6859945)**  
+- 💨 **[Dream Wind Turbines (dream_windturbines)](https://shop.dream-services.eu/products/6989338)**  
+- 💼 **[Dream Secret Dealer (dream_secretdealer)](https://shop.dream-services.eu/products/7090440)**  
 
 💡 Community-made integrations are also welcome!  
 If you’ve created an integration, feel free to **contact us to have it added to this list**.  
